@@ -1,27 +1,17 @@
-//Разработать программу, которая переворачивает подаваемую на ход строку (например: «главрыба — абырвалг»).
-//Символы могут быть unicode.
-
 package main
 
-import "fmt"
-
-func reverse(s string) string {
-	rns := []rune(s)
-	for i, j := 0, len(rns)-1; i < j; i, j = i+1, j-1 {
-
-		rns[i], rns[j] = rns[j], rns[i]
-	}
-
-	// возвращает обратный стринг
-	return string(rns)
-}
+import (
+	"fmt"
+	"strings"
+)
 
 func main() {
-
-	// обращает стринг
-	str := "статуя"
-
-	strRev := reverse(str)
-	fmt.Println(str)
-	fmt.Println(strRev)
+	var str string = "главрыба"
+	//добавляем символ строки в слайс
+	s := strings.Split(str, "")
+	//проходимся по слайсу s
+	for i := range s {
+		//stdout
+		fmt.Print(s[len(s)-1-i])
+	}
 }

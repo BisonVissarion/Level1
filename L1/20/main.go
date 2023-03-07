@@ -1,6 +1,3 @@
-//Разработать программу, которая переворачивает слова в строке.
-//Пример: «snow dog sun — sun dog snow».
-
 package main
 
 import (
@@ -8,16 +5,13 @@ import (
 	"strings"
 )
 
-func reverseWords(str string) string {
-	words := strings.Fields(str)
-
-	for i, j := 0, len(words)-1; i < j; i, j = i+1, j-1 {
-		words[i], words[j] = words[j], words[i]
-	}
-	return strings.Join(words, " ")
-}
-
 func main() {
-	str := "snow dog sun"
-	fmt.Printf("%s\n", reverseWords(str))
+	var s string = "snow dog sun"
+	//добавляем каждое слово в слайс
+	w := strings.Split(s, " ")
+	//проходимся по слайсу words
+	for i := range w {
+		//stdout
+		fmt.Print(w[len(w)-i-1], " ")
+	}
 }
